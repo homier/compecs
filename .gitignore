@@ -1,2 +1,5 @@
+.*
+!.gitattributes
+
 .zig-cache/
 zig-out/
