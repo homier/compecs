@@ -141,7 +141,7 @@ pub fn main() !void {
 
     var space: Cosmos = undefined;
     try space.init(allocator);
-    defer space.denit();
+    defer space.deinit();
 
     while (true) {
         try space.run();

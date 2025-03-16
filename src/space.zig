@@ -45,7 +45,7 @@ pub fn Space(
         entities: EntitiesByName = .{},
         systems: SystemsByName = .{},
 
-        pub fn init(self: *Self, allocator: std.mem.Allocator) std.mem.Allocator.Error!void {
+        pub fn init(self: *Self, allocator: std.mem.Allocator) !void {
             self.*.machinery = .{ .allocator = allocator };
             self.*.entities = .{};
             self.*.systems = .{};
@@ -59,7 +59,7 @@ pub fn Space(
             }
         }
 
-        pub fn denit(self: *Self) void {
+        pub fn deinit(self: *Self) void {
             inline for (EntitiesFieldNames) |Name| {
                 @field(self.*.entities, Name).deinit();
                 @field(self.*.entities, Name) = undefined;
